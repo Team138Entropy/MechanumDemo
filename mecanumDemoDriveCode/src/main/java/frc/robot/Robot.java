@@ -20,9 +20,9 @@ public class Robot extends TimedRobot {
   //front left
   PWMTalonSRX Talon1 = new PWMTalonSRX(0);
   //back left
-  PWMTalonSRX Talon2 = new PWMTalonSRX(1);
+  PWMTalonSRX Talon2 = new PWMTalonSRX(2);
   //front right
-  PWMTalonSRX Talon3 = new PWMTalonSRX(2);
+  PWMTalonSRX Talon3 = new PWMTalonSRX(1);
   //back right
   PWMTalonSRX Talon4 = new PWMTalonSRX(3);
 
@@ -56,15 +56,15 @@ public class Robot extends TimedRobot {
     //setup for the types of mecanum drives
     if (mDriveMode.getSelected()) {
       robotDrive.drivePolar(
-       DriveController.getJoystick(XboxController.Side.LEFT,XboxController.Axis.Y),
        DriveController.getJoystick(XboxController.Side.LEFT,XboxController.Axis.X),
-       DriveController.getJoystick(XboxController.Side.RIGHT,XboxController.Axis.Y));
+       DriveController.getJoystick(XboxController.Side.RIGHT,XboxController.Axis.X),
+       DriveController.getJoystick(XboxController.Side.LEFT,XboxController.Axis.Y));
     }
     else {
       robotDrive.driveCartesian(
-      DriveController.getJoystick(XboxController.Side.LEFT,XboxController.Axis.Y),
       DriveController.getJoystick(XboxController.Side.LEFT,XboxController.Axis.X),
-      DriveController.getJoystick(XboxController.Side.RIGHT,XboxController.Axis.Y));
+      DriveController.getJoystick(XboxController.Side.RIGHT,XboxController.Axis.X),
+      DriveController.getJoystick(XboxController.Side.LEFT,XboxController.Axis.Y));
     }
   }
 
